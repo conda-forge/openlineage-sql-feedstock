@@ -281,5 +281,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@millsks](https://github.com/millsks/)
 * [@rxm7706](https://github.com/rxm7706/)
 
