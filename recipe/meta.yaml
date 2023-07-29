@@ -23,8 +23,7 @@ requirements:
     - cargo-bundle-licenses
   host:
     - python
-    - maturin >=1.0  # [py>37]
-    - maturin >=0.13.6  # [py==37]
+    - maturin
     - pip
   run:
     - python
