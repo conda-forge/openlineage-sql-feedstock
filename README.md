@@ -284,6 +284,3 @@ Feedstock Maintainers
 * [@millsks](https://github.com/millsks/)
 * [@rxm7706](https://github.com/rxm7706/)
 
-
-<!-- dummy commit to enable rerendering -->
-
