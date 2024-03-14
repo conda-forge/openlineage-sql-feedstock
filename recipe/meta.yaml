@@ -1,5 +1,5 @@
 {% set name = "openlineage-sql" %}
-{% set version = "1.9.1" %}
+{% set version = "1.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/openlineage_sql-{{ version }}.tar.gz
-  sha256: f072a3bfe15b5b14fb8e221e05382860f8acc90079e0d6f4d2ddbba2a36c7bbf
+  sha256: 1ae2373663f0e55faaed47a22e771e847792210a45c4303ebc9b25a75696e76a
 
 build:
   skip: true  # [py<38]
