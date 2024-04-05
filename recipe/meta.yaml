@@ -13,7 +13,7 @@ build:
   skip: true  # [py<38]
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 1
 
 requirements:
