@@ -13,8 +13,8 @@ build:
   skip: true  # [py<38]
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-    - {{ PYTHON }} -m pip install . -vv
-  number: 1
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 2
 
 requirements:
   build:
@@ -26,10 +26,10 @@ requirements:
     - cargo-bundle-licenses
   host:
     - python
-    - maturin >=1.0
+    - maturin >=1,<2
     - pip
   run:
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]  
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.12") }}  # [osx and x86_64]  
     - python
 
 test:
