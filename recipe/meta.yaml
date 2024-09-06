@@ -1,5 +1,5 @@
 {% set name = "openlineage-sql" %}
-{% set version = "1.21.1" %}
+{% set version = "1.22.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/openlineage_sql-{{ version }}.tar.gz
-  sha256: d6260c3066225c7543844fe14acc06c27c709ed85ccc67756c2b87ca87ba52a4
+  sha256: 3e1fdb78a6eec6dc881ba49bb1f4658aa7b621882363ce4484cd769b47c9f8ca
 
 build:
   skip: true  # [py<38]
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   build:
