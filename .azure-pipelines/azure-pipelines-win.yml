@@ -20,12 +20,6 @@ jobs:
       win_64_python3.13.____cp313:
         CONFIG: win_64_python3.13.____cp313
         UPLOAD_PACKAGES: 'True'
-      win_64_python3.8.____73_pypy:
-        CONFIG: win_64_python3.8.____73_pypy
-        UPLOAD_PACKAGES: 'True'
-      win_64_python3.8.____cpython:
-        CONFIG: win_64_python3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
       win_64_python3.9.____73_pypy:
         CONFIG: win_64_python3.9.____73_pypy
         UPLOAD_PACKAGES: 'True'
@@ -45,6 +39,7 @@ jobs:
       displayName: Run Windows build
       env:
         MINIFORGE_HOME: $(MINIFORGE_HOME)
+        CONDA_BLD_PATH: $(CONDA_BLD_PATH)
         PYTHONUNBUFFERED: 1
         CONFIG: $(CONFIG)
         CI: azure
