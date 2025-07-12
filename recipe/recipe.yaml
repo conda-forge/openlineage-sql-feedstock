@@ -43,7 +43,6 @@ tests:
       imports:
         - openlineage_sql
       pip_check: true
-      python_version: ${{ python_min }}.*
 
 about:
   summary: Python interface for the Rust OpenLineage lineage extraction library
