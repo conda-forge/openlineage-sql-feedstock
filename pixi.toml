@@ -7,7 +7,7 @@
 
 [project]
 name = "openlineage-sql-feedstock"
-version = "3.52.0"  # conda-smithy version used to generate this file
+version = "3.52.3"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/openlineage-sql-feedstock"
 authors = ["@conda-forge/openlineage-sql"]
 channels = ["conda-forge"]
