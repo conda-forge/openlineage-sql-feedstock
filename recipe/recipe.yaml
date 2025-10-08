@@ -57,7 +57,6 @@ tests:
         - pytest-cov >=5
         - pytest-mock >=3.14
         - pip
-        - python
         #- python !=${{ python_min }}.*
     script:
       - pip check
