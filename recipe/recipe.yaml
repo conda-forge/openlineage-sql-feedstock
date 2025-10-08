@@ -4,7 +4,6 @@ schema_version: 1
 context:
   name: openlineage-sql
   version: "1.39.0"
-  python_min: '3.10'
 
 package:
   name: ${{ name|lower }}
@@ -16,33 +15,48 @@ source:
 
 build:
   number: 0
+  # only build for the minimal python version
+  skip: not (match(python, python_min ~ ".*") and is_abi3)
   script:
-    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+  python:
+    version_independent: true
 
 requirements:
   build:
+    - ${{ compiler("c") }}
+    - ${{ compiler("rust") }}
+    - ${{ stdlib("c") }}
+    - cargo-bundle-licenses
     - if: build_platform != target_platform
       then:
         - python
         - cross-python_${{ target_platform }}
-        - maturin >=1,<2
-    - ${{ compiler("c") }}
-    - ${{ stdlib("c") }}
-    - ${{ compiler("rust") }}
-    - cargo-bundle-licenses
+        - maturin >=${{ maturin_min }}
   host:
-    - python
+    - maturin >=${{ maturin_min }}
     - pip
-    - maturin >=1,<2
+    - python
+    - python-abi3
   run:
     - python
 
 tests:
   - python:
-      imports:
-        - openlineage_sql
+      imports: openlineage_sql
       pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - 3.13.*
+  - requirements:
+      run:
+        - pytest >=8.2
+        - pytest-cov >=5
+        - pytest-mock >=3.14
+        - python !=${{ python_min }}.*
+    script:
+      - pip check
 
 about:
   summary: Python interface for the Rust OpenLineage lineage extraction library
