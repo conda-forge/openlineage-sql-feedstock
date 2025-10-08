@@ -17,7 +17,8 @@ source:
 build:
   number: 0
   # only build for the minimal python version
-  #skip: not (match(python, python_min ~ ".*") and is_abi3)
+  #skip: not (match(python, python_min ~ ".*") and is_abi3) or match(python, ">=3.14")
+  skip: match(python, ">=3.14")
   script:
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
