@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: openlineage-sql
-  version: "1.48.0"
+  version: "1.49.0"
   python_min: '3.10'
 
 package:
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/openlineage_sql-${{ version }}.tar.gz
-  sha256: 6af719b59e5e99b754579d13ecdc4ce2819dfc4a26394417108609082190948b
+  sha256: 5eba164da39e1268e149c1b468bf12e16734fc867252d88d016e0f481750919a
 
 build:
   number: 0
